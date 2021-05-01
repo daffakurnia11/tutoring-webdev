@@ -35,3 +35,12 @@ function tambah($data)
   mysqli_query($db, $query);
   return mysqli_affected_rows($db);
 }
+
+function hapus($id)
+{
+  // Ambil variabel dari luar function
+  global $db;
+
+  mysqli_query($db, "DELETE FROM mahasiswa WHERE id = $id");
+  return mysqli_affected_rows($db);
+}

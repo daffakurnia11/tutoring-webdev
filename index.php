@@ -20,6 +20,7 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   <table border="1" cellpadding="10" cellspacing="3">
     <tr>
       <th>No.</th>
+      <th>Aksi</th>
       <th>Nama</th>
       <th>NRP</th>
       <th>Email</th>
@@ -29,6 +30,9 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <?php foreach ($mahasiswa as $mhs) : ?>
       <tr>
         <td><?= $i++ ?></td>
+        <td>
+          <a href="delete.php?id=<?= $mhs['id']; ?>">Hapus</a>
+        </td>
         <td><?= $mhs['nama'] ?></td>
         <td><?= $mhs['nrp'] ?></td>
         <td><?= $mhs['email'] ?></td>
