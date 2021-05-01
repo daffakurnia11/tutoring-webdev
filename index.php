@@ -1,6 +1,12 @@
 <?php
 require 'functions.php';
 $mahasiswa = query("SELECT * FROM mahasiswa");
+
+// Kondisi ketika Tombol search di klik
+if (isset($_GET['cari'])) {
+  $keyword = $_GET['keyword'];
+  $mahasiswa = cari($keyword);
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +23,10 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
   <h1>Daftar Mahasiswa</h1>
   <a href="insert.php">Tambah Data Mahasiswa</a>
   <br><br>
+  <form action="" method="get">
+    <input type="text" name="keyword" size="40" placeholder="Masukkan Keyword pencarian..">
+    <button type="submit" name="cari">Cari!</button>
+  </form>
   <table border="1" cellpadding="10" cellspacing="3">
     <tr>
       <th>No.</th>
