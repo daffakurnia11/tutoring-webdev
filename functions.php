@@ -15,3 +15,23 @@ function query($query)
   }
   return $rows;
 }
+
+function tambah($data)
+{
+  // Ambil variabel dari luar function
+  global $db;
+
+  // Ambil Data dari Form
+  $nama = $data['nama'];
+  $nrp = $data['nrp'];
+  $email = $data['email'];
+  $jurusan = $data['jurusan'];
+
+  // Query buat masukkan data (Insert)
+  $query = "INSERT INTO mahasiswa
+            VALUES
+            ('', '$nama', '$nrp', '$email', '$jurusan')
+  ";
+  mysqli_query($db, $query);
+  return mysqli_affected_rows($db);
+}
