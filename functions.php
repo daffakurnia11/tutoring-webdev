@@ -22,10 +22,10 @@ function tambah($data)
   global $db;
 
   // Ambil Data dari Form
-  $nama = $data['nama'];
-  $nrp = $data['nrp'];
-  $email = $data['email'];
-  $jurusan = $data['jurusan'];
+  $nama = htmlspecialchars($data['nama']);
+  $nrp = htmlspecialchars($data['nrp']);
+  $email = htmlspecialchars($data['email']);
+  $jurusan = htmlspecialchars($data['jurusan']);
 
   // Query buat masukkan data (Insert)
   $query = "INSERT INTO mahasiswa

@@ -35,19 +35,19 @@ if (isset($_POST['submit'])) {
     <form action="" method="post">
       <li>
         <label for="nama">Nama : </label>
-        <input type="text" id="nama" name="nama">
+        <input type="text" id="nama" name="nama" required>
       </li>
       <li>
         <label for="nrp">NRP : </label>
-        <input type="text" id="nrp" name="nrp">
+        <input type="text" id="nrp" name="nrp" required>
       </li>
       <li>
         <label for="email">Email : </label>
-        <input type="text" id="email" name="email">
+        <input type="text" id="email" name="email" required>
       </li>
       <li>
         <label for="jurusan">Jurusan : </label>
-        <input type="text" id="jurusan" name="jurusan">
+        <input type="text" id="jurusan" name="jurusan" required>
       </li>
       <li>
         <button type="submit" name="submit">Tambah Data</button>
