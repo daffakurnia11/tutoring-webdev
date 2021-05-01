@@ -8,7 +8,7 @@ function query($query)
   global $db;
 
   // Ambil Data dari Tabel (Query)
-  $result = mysqli_query($db, "SELECT * FROM mahasiswa");
+  $result = mysqli_query($db, $query);
   $rows = [];
   while ($row = mysqli_fetch_assoc($result)) {
     $rows[] = $row;
@@ -42,5 +42,29 @@ function hapus($id)
   global $db;
 
   mysqli_query($db, "DELETE FROM mahasiswa WHERE id = $id");
+  return mysqli_affected_rows($db);
+}
+
+function ubah($data)
+{
+  // Ambil variabel dari luar function
+  global $db;
+
+  // Ambil Data dari Form
+  $id = $data['id'];
+  $nama = htmlspecialchars($data['nama']);
+  $nrp = htmlspecialchars($data['nrp']);
+  $email = htmlspecialchars($data['email']);
+  $jurusan = htmlspecialchars($data['jurusan']);
+
+  // Query buat masukkan data (Insert)
+  $query = "UPDATE mahasiswa SET
+            nama = '$nama',
+            nrp = '$nrp',
+            email = '$email',
+            jurusan = '$jurusan'
+            WHERE id = $id
+  ";
+  mysqli_query($db, $query);
   return mysqli_affected_rows($db);
 }
