@@ -1,16 +1,6 @@
 <?php
-// Koneksi Database
-$db = mysqli_connect("localhost", "root", "", "tutoringroda");
-
-// Ambil Data dari Tabel (Query)
-$result = mysqli_query($db, "SELECT * FROM mahasiswa");
-
-// Ambil Data dari Hasil Query (Fetch)
-// mysqli_fetch_row()     mengembalikan array numeric
-// mysqli_fetch_assoc()   mengembalikan array assosiatif
-// mysqli_fetch_array()   mengembalikan array numeric dan assosiatif
-// mysqli_fetch_object()  mengembalikan object (menggunakan panah)
-
+require 'functions.php';
+$mahasiswa = query("SELECT * FROM mahasiswa");
 ?>
 
 <!DOCTYPE html>
@@ -34,15 +24,15 @@ $result = mysqli_query($db, "SELECT * FROM mahasiswa");
       <th>Jurusan</th>
     </tr>
     <?php $i = 1; ?>
-    <?php while ($mahasiswa = mysqli_fetch_assoc($result)) : ?>
+    <?php foreach ($mahasiswa as $mhs) : ?>
       <tr>
         <td><?= $i++ ?></td>
-        <td><?= $mahasiswa['nama'] ?></td>
-        <td><?= $mahasiswa['nrp'] ?></td>
-        <td><?= $mahasiswa['email'] ?></td>
-        <td><?= $mahasiswa['jurusan'] ?></td>
+        <td><?= $mhs['nama'] ?></td>
+        <td><?= $mhs['nrp'] ?></td>
+        <td><?= $mhs['email'] ?></td>
+        <td><?= $mhs['jurusan'] ?></td>
       </tr>
-    <?php endwhile ?>
+    <?php endforeach ?>
   </table>
 </body>
 
