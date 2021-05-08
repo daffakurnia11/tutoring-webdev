@@ -18,4 +18,10 @@ class Anggota extends CI_Model
     $this->db->delete('mahasiswa', ['id' => $id]);
     return redirect('home/anggota');
   }
+
+  public function insert_data($data)
+  {
+    $this->db->insert('mahasiswa', $data);
+    return redirect('home/anggota');
+  }
 }

@@ -62,4 +62,28 @@ class Home extends CI_Controller
   {
     $this->anggota->delete_data($id);
   }
+
+  public function tambah()
+  {
+    $data['title'] = 'Tambah Anggota';
+
+    $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+    $this->form_validation->set_rules('nrp', 'NRP', 'required|trim|is_natural|is_unique[mahasiswa.nrp]');
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+    $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('home/templates/header', $data);
+      $this->load->view('home/tambah');
+      $this->load->view('home/templates/footer');
+    } else {
+      $data = [
+        'nama' => $this->input->post('nama'),
+        'nrp' => $this->input->post('nrp'),
+        'email' => $this->input->post('email'),
+        'jurusan' => $this->input->post('jurusan'),
+      ];
+      $this->anggota->insert_data($data);
+    }
+  }
 }
