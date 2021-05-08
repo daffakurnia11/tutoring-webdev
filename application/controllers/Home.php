@@ -20,10 +20,14 @@ class Home extends CI_Controller
 
   public function anggota()
   {
-    $data['title'] = 'Anggota Roda';
+    // $data['title'] = 'Anggota Roda';
+    $data = [
+      'title' => 'Anggota Roda',
+      'users' => $this->db->get('mahasiswa')->result_array()
+    ];
 
     $this->load->view('home/templates/header', $data);
-    $this->load->view('home/anggota');
+    $this->load->view('home/anggota', $data);
     $this->load->view('home/templates/footer');
   }
 
