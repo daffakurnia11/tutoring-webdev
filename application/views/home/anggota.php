@@ -20,6 +20,7 @@
           <td class="text-center">
             <a href="<?php echo base_url('home/detail/') . $user['id']; ?>"><span class="badge badge-success">Detail</span></a>
             <a href="<?php echo base_url('home/delete/') . $user['id']; ?>"><span class="badge badge-danger">Hapus</span></a>
+            <a href="<?php echo base_url('home/ubah/') . $user['id']; ?>"><span class="badge badge-primary">Ubah</span></a>
           </td>
         </tr>
       <?php endforeach; ?>

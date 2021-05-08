@@ -24,4 +24,11 @@ class Anggota extends CI_Model
     $this->db->insert('mahasiswa', $data);
     return redirect('home/anggota');
   }
+
+  public function update_data($data, $id)
+  {
+    $this->db->where('id', $id);
+    $this->db->update('mahasiswa', $data);
+    return redirect('home/anggota');
+  }
 }

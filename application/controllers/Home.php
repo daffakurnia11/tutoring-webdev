@@ -86,4 +86,31 @@ class Home extends CI_Controller
       $this->anggota->insert_data($data);
     }
   }
+
+  public function ubah($id)
+  {
+    $data = [
+      'title' => 'Detail Roda',
+      'user'  => $this->anggota->get_data($id)
+    ];
+
+    $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+    $this->form_validation->set_rules('nrp', 'NRP', 'required|trim|is_natural');
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+    $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('home/templates/header', $data);
+      $this->load->view('home/ubah_anggota', $data);
+      $this->load->view('home/templates/footer');
+    } else {
+      $data = [
+        'nama' => $this->input->post('nama'),
+        'nrp' => $this->input->post('nrp'),
+        'email' => $this->input->post('email'),
+        'jurusan' => $this->input->post('jurusan'),
+      ];
+      $this->anggota->update_data($data, $id);
+    }
+  }
 }
