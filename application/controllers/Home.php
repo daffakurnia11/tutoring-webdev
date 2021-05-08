@@ -3,6 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
+  public function __construct()
+  {
+    parent::__construct();
+    $this->load->model('anggota');
+  }
+
   public function index()
   {
     // $data['title'] = 'Tutoring Roda';
@@ -21,8 +27,6 @@ class Home extends CI_Controller
   public function anggota()
   {
     // $data['title'] = 'Anggota Roda';
-    $this->load->model('anggota');
-
     $data = [
       'title' => 'Anggota Roda',
       'users' => $this->anggota->all_data()
@@ -44,8 +48,6 @@ class Home extends CI_Controller
 
   public function detail($id)
   {
-    $this->load->model('anggota');
-
     $data = [
       'title' => 'Detail Roda',
       'user'  => $this->anggota->get_data($id)
@@ -58,8 +60,6 @@ class Home extends CI_Controller
 
   public function delete($id)
   {
-    $this->load->model('anggota');
-
     $this->anggota->delete_data($id);
   }
 }
