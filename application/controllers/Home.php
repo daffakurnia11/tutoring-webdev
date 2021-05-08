@@ -5,21 +5,33 @@ class Home extends CI_Controller
 {
   public function index()
   {
-    $this->load->view('home/templates/header');
-    $this->load->view('home/index');
+    // $data['title'] = 'Tutoring Roda';
+    // $data['user'] = 'Qwerty';
+
+    $data = [
+      'title' => 'Tutoring Roda',
+      'user'  => 'Daffa'
+    ];
+
+    $this->load->view('home/templates/header', $data);
+    $this->load->view('home/index', $data);
     $this->load->view('home/templates/footer');
   }
 
   public function anggota()
   {
-    $this->load->view('home/templates/header');
+    $data['title'] = 'Anggota Roda';
+
+    $this->load->view('home/templates/header', $data);
     $this->load->view('home/anggota');
     $this->load->view('home/templates/footer');
   }
 
   public function blog()
   {
-    $this->load->view('home/templates/header');
+    $data['title'] = 'Blog Roda';
+
+    $this->load->view('home/templates/header', $data);
     $this->load->view('home/blog');
     $this->load->view('home/templates/footer');
   }
