@@ -12,4 +12,10 @@ class Anggota extends CI_Model
   {
     return $this->db->get_where('mahasiswa', ['id' => $id])->row_array();
   }
+
+  public function delete_data($id)
+  {
+    $this->db->delete('mahasiswa', ['id' => $id]);
+    return redirect('home/anggota');
+  }
 }

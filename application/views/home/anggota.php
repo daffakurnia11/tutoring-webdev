@@ -5,9 +5,7 @@
       <tr>
         <th scope="col">No</th>
         <th scope="col">Nama</th>
-        <th scope="col">Email</th>
         <th scope="col">NRP</th>
-        <th scope="col">Jurusan</th>
         <th scope="col">Aksi</th>
       </tr>
     </thead>
@@ -17,11 +15,10 @@
         <tr>
           <th scope="row"><?php echo $i++; ?></th>
           <td><?php echo $user['nama'] ?></td>
-          <td><?php echo $user['email'] ?></td>
           <td><?php echo $user['nrp'] ?></td>
-          <td><?php echo $user['jurusan'] ?></td>
           <td>
             <a href="<?php echo base_url('home/detail/') . $user['id']; ?>"><span class="badge badge-success">Detail</span></a>
+            <a href="<?php echo base_url('home/delete/') . $user['id']; ?>"><span class="badge badge-danger">Hapus</span></a>
           </td>
         </tr>
       <?php endforeach; ?>

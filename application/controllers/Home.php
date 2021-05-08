@@ -55,4 +55,11 @@ class Home extends CI_Controller
     $this->load->view('home/detail_anggota', $data);
     $this->load->view('home/templates/footer');
   }
+
+  public function delete($id)
+  {
+    $this->load->model('anggota');
+
+    $this->anggota->delete_data($id);
+  }
 }
