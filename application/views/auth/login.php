@@ -24,38 +24,28 @@
       background-color: white;
     }
   </style>
-  <title>Halaman Registrasi</title>
+  <title>Halaman Login</title>
 </head>
 
 <body>
   <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-lg-6 px-4">
+    <div class="col-lg-4 px-4">
       <div class="container px-5">
         <form action="" method="post">
-          <h1 class="text-center m-4">Form Registrasi</h1>
-          <div class="form-group">
-            <label for="nama">Nama Lengkap</label>
-            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama..." value="<?php echo set_value('nama') ?>">
-            <?php echo form_error('nama', '<span class="text-danger">', '</span>'); ?>
-          </div>
+          <h1 class="text-center m-4">Form Login</h1>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email..." value="<?php echo set_value('email') ?>">
             <?php echo form_error('email', '<span class="text-danger">', '</span>'); ?>
           </div>
           <div class="form-group">
-            <label for="password1">Password</label>
-            <input type="password" class="form-control" id="password1" name="password1" placeholder="Masukkan Password...">
-            <?php echo form_error('password1', '<span class="text-danger">', '</span>'); ?>
-          </div>
-          <div class="form-group">
-            <label for="password2">Konfirmasi Password</label>
-            <input type="password" class="form-control" id="password2" name="password2" placeholder="Ulangi Password...">
-            <?php echo form_error('password2', '<span class="text-danger">', '</span>'); ?>
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password...">
+            <?php echo form_error('password', '<span class="text-danger">', '</span>'); ?>
           </div>
           <div class="form-group text-center">
-            <button type="submit" class="btn btn-success my-3">Daftar Sekarang!</button>
-            <a href="<?= base_url('auth'); ?>" class="d-block">Sudah daftar? Login Sekarang!</a>
+            <button type="submit" class="btn btn-success my-3">Login!</button>
+            <a href="<?= base_url('auth/register'); ?>" class="d-block">Belum daftar? Daftar Sekarang!</a>
           </div>
         </form>
       </div>

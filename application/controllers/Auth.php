@@ -9,6 +9,22 @@ class Auth extends CI_Controller
     $this->load->model('auth_models', 'auth');
   }
 
+  public function index()
+  {
+    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[4]');
+
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('auth/login');
+    } else {
+      $data = [
+        'email'     => $this->input->post('email'),
+        'password'  => $this->input->post('password')
+      ];
+      $this->auth->login($data);
+    }
+  }
+
   public function register()
   {
     $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
