@@ -15,6 +15,12 @@ class Auth_models extends CI_Model
 
     if ($user) {
       if (password_verify($data['password'], $user['password'])) {
+        $data = [
+          'email' => $user['email'],
+          'nama'  => $user['nama']
+        ];
+        $this->session->set_userdata($data);
+
         return redirect('home');
       } else {
         echo "PASSWORD GAK COCOK!";

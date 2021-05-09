@@ -24,6 +24,7 @@
           <a class="nav-link active" href="<?php echo base_url(); ?>">Beranda <span class="sr-only">(current)</span></a>
           <a class="nav-link" href="<?php echo base_url('home/anggota'); ?>">Anggota</a>
           <a class="nav-link" href="<?php echo base_url('home/blog'); ?>">Blog</a>
+          <a class="nav-link" href="<?php echo base_url('auth/logout'); ?>">Keluar!</a>
         </div>
       </div>
     </div>
