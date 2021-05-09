@@ -54,6 +54,8 @@ class Auth extends CI_Controller
   {
     $this->session->unset_userdata('email');
     $this->session->unset_userdata('nama');
+
+    $this->session->set_flashdata('notifikasi', '<div class="alert alert-danger" role="alert">Anda telah keluar!</div>');
     redirect('auth');
   }
 }

@@ -1,6 +1,8 @@
 <div class="container mt-3">
   <h1 class="text-center">Daftar Anggota</h1>
   <a href="<?php echo base_url('home/tambah') ?>" class="btn btn-primary my-3">Tambah Data</a>
+  <?php echo $this->session->flashdata('notifikasi'); ?>
+  <?php echo $this->session->unset_userdata('notifikasi'); ?>
   <table class="table table-bordered">
     <thead>
       <tr class="text-center">

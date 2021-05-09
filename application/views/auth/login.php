@@ -33,6 +33,8 @@
       <div class="container px-5">
         <form action="" method="post">
           <h1 class="text-center m-4">Form Login</h1>
+          <?php echo $this->session->flashdata('notifikasi'); ?>
+          <?php echo $this->session->unset_userdata('notifikasi'); ?>
           <div class="form-group">
             <label for="email">Email</label>
             <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email..." value="<?php echo set_value('email') ?>">

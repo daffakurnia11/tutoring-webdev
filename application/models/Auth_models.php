@@ -23,12 +23,12 @@ class Auth_models extends CI_Model
 
         return redirect('home');
       } else {
-        echo "PASSWORD GAK COCOK!";
-        return;
+        $this->session->set_flashdata('notifikasi', '<div class="alert alert-danger" role="alert">Password salah!</div>');
+        redirect('auth');
       }
     } else {
-      echo "DATA GAADA";
-      return;
+      $this->session->set_flashdata('notifikasi', '<div class="alert alert-danger" role="alert">Anda tidak terdaftar!</div>');
+      redirect('auth');
     }
   }
 }
